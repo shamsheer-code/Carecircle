@@ -1,0 +1,36 @@
+{
+  "name": "carecircle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CareCircle - offline-first mobile treatment adherence tracker for a caretaker managing two patients",
+  "main": "index.js",
+  "scripts": {
+    "setup": "expo install --fix",
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "verify": "node tools/verify.js"
+  },
+  "dependencies": {
+    "expo": "~57.0.0",
+    "react": "19.2.0",
+    "react-native": "0.86.0",
+    "expo-status-bar": "*",
+    "expo-sqlite": "*",
+    "expo-notifications": "*",
+    "expo-device": "*",
+    "expo-print": "*",
+    "expo-sharing": "*",
+    "expo-file-system": "*",
+    "@react-navigation/native": "^7.0.0",
+    "@react-navigation/native-stack": "^7.0.0",
+    "@react-navigation/bottom-tabs": "^7.0.0",
+    "react-native-screens": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-svg": "*",
+    "@react-native-async-storage/async-storage": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.0"
+  }
+}

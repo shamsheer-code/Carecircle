@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "CareCircle",
+    "slug": "carecircle",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "carecircle",
+    "platforms": ["ios", "android"],
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0F766E"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.carecircle.app",
+      "infoPlist": {
+        "UIBackgroundModes": ["remote-notification"]
+      }
+    },
+    "android": {
+      "package": "com.carecircle.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0F766E"
+      },
+      "permissions": ["POST_NOTIFICATIONS", "SCHEDULE_EXACT_ALARM", "VIBRATE"],
+      "edgeToEdgeEnabled": true
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "color": "#0F766E"
+        }
+      ]
+    ],
+    "extra": {
+      "mobileOnly": true
+    }
+  }
+}
