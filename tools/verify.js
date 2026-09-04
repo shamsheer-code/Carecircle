@@ -24,6 +24,29 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const SRC = path.join(ROOT, 'src');
 
+// Redirect the native-module packages to the harness's stubs, taking
+// priority over the app's real node_modules (which do have react-native,
+// expo, etc. installed for `npm start` — those can't load outside Expo, so
+// normal resolution order would pick the real, unloadable package first).
+const STUBS = path.join(__dirname, 'stubs');
+if (fs.existsSync(STUBS)) {
+  const stubbed = fs
+    .readdirSync(STUBS)
+    .flatMap((entry) =>
+      entry.startsWith('@')
+        ? fs.readdirSync(path.join(STUBS, entry)).map((sub) => `${entry}/${sub}`)
+        : [entry]
+    );
+  const Module = require('module');
+  const originalResolve = Module._resolveFilename;
+  Module._resolveFilename = function (request, ...rest) {
+    if (stubbed.includes(request)) {
+      return originalResolve.call(this, path.join(STUBS, request), ...rest);
+    }
+    return originalResolve.call(this, request, ...rest);
+  };
+}
+
 let passed = 0;
 let failed = 0;
 const failures = [];

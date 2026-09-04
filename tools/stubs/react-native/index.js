@@ -1,0 +1,25 @@
+// Inert stub for the verification harness — only what plain Node modules touch.
+module.exports = {
+  Platform: { OS: 'node', select: (obj) => obj.default ?? obj.node ?? obj.ios },
+  StyleSheet: { create: (s) => s, flatten: (s) => s },
+  Dimensions: { get: () => ({ width: 375, height: 812 }) },
+  View: 'View',
+  Text: 'Text',
+  ScrollView: 'ScrollView',
+  TouchableOpacity: 'TouchableOpacity',
+  Pressable: 'Pressable',
+  TextInput: 'TextInput',
+  FlatList: 'FlatList',
+  Image: 'Image',
+  Switch: 'Switch',
+  Modal: 'Modal',
+  ActivityIndicator: 'ActivityIndicator',
+  SafeAreaView: 'SafeAreaView',
+  Animated: {
+    View: 'Animated.View',
+    Value: function Value(v) { this._v = v; },
+    timing: () => ({ start: (cb) => cb && cb() }),
+  },
+  Alert: { alert: () => {} },
+  Keyboard: { dismiss: () => {} },
+};
